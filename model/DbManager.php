@@ -26,7 +26,7 @@ class DbConnect
     public function DeleteDb($DbName, $id, $DelId)
     {
         $Db=$this->connexion();
-        $Req=$Db->prepare('DELETE FROM'.$Arg1.'WHERE'.$id.'='.$Arg3);
+        $Req=$Db->prepare('DELETE FROM'.$DbName.'WHERE'.$id.'='.$DelId);
         $Req->execute();
     }
 
