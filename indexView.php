@@ -41,7 +41,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">YR - Developpement</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -53,19 +53,20 @@
                         <a href="#portfolio">Portfolio</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about">A Propos de moi</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="#contact">Me Contacter</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
+    </nav>
 
 
         
-    <?php $content; ?>
+    <?php var_dump($content); ?>
 
 
 

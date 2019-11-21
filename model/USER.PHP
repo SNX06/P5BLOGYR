@@ -1,7 +1,8 @@
 <?php
 
-require_once('./DbManager.php');
-
+namespace model\user;
+require('./model/DbManager.php');
+use DbManager;
 
 class User
 {

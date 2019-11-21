@@ -1,24 +1,22 @@
 <?php 
-class DbConnect
+
+
+class DbManager
 {
-    private $connec_host = 'localhost';
-    private $connec_dbname = 'p5blog';
-    private $connec_pseudo = 'root';
-    private $connec_mdp = '';
 
     public function GetDb($Query)
     {
-        $Db=$this->connexion();
+        $Db= DbManager::connexion();
         $Req = $Db->prepare($Query);
         $Req->execute();
-        $GetDb = $req->fetch(PDO::FETCH_ASSOC);
+        $GetDb = $Req->fetchAll(PDO::FETCH_ASSOC);
 
         return $GetDb;
     }
 
     public function UpdateDb($Query, $DbParam)
     {
-        $Db=$this->connexion();
+        $Db=$this->connexion($DbName, $DbHost, $DbUser, $DbPass);
         $Req=$Db->prepare($Query);
         $Req->execute(array($DbParam));
     }
@@ -26,19 +24,19 @@ class DbConnect
     public function DeleteDb($DbName, $id, $DelId)
     {
         $Db=$this->connexion();
-        $Req=$Db->prepare('DELETE FROM'.$DbName.'WHERE'.$id.'='.$DelId);
-        $Req->execute();
+        $Req=$Db->execute('DELETE FROM'.$DbName.'WHERE'.$id.'='.$DelId);
+        return $Req;
     }
 
     private function connexion() {
         try {
-            $Db = new PDO('mysql:host='.$this->connec_host.';dbname='.$this->connec_dbname, $this->connec_pseudo, $this->connec_mdp);
+            $Db = new PDO('mysql:dbname=p5blog;host=localhost' , 'root', '');
             $Db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
             die('<h3>Erreur!</h3>');
         }
-        return $bdd;
+        return $Db;
     }
 
 }
