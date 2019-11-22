@@ -1,13 +1,12 @@
 <?php
-namespace UserList;
-use model\User;
+namespace controller;
+use model;
 
 Class Userlist
 {
     public function WatchUserList()
     {
-        require('model/User.php');
-        $UserList=\User\User::GetAllUser();
+        $UserList=\model\User::GetAllUser();
         echo '    <header>
                     <div class="container">
                         <div class="row">

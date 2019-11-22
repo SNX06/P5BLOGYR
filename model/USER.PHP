@@ -1,8 +1,6 @@
 <?php
 
-namespace User;
-require('./model/DbManager.php');
-use DbManager;
+namespace model;
 
 class User
 {
@@ -16,14 +14,14 @@ class User
     public function GetUser($SelectorGet ,$ValueSelector)
     {
         $Req='SELECT * FROM user WHERE'.$SelectorGet.'='.$ValueSelector;
-        $DbReq= DbManager::GetDb($Req);
+        $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
 
     public function GetAllUser()
     {
         $Req='SELECT * FROM user';
-        $DbReq= \DbManager\DbManager::GetDb($Req);
+        $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
     public function UpdateUser($Id,$FirstName,$LastName,$Mail,$Phone){
@@ -34,7 +32,7 @@ class User
             'mail' => htmlspecialchars($Mail),
             'phone' => htmlspecialchars($Phone),
         );
-        $DbReq= DbManager::updateDb($Req,$ReqValues);
+        $DbReq= \model\DbManager::updateDb($Req,$ReqValues);
     }
     
     public function DeleteUserBy($Arg, $ValueArg)

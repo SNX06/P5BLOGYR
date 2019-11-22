@@ -1,5 +1,5 @@
 <?php 
-namespace DbManager;
+namespace model;
 use PDO;
 class DbManager
 {
