@@ -66,7 +66,7 @@
 
 
         
-    <?php var_dump($content); ?>
+    <?php $content; ?>
 
 
 
