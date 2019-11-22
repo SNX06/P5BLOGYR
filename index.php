@@ -1,17 +1,15 @@
 <?php
 namespace index;
-use controller;
-
-define('DS', DIRECTORY_SEPARATOR); 
-define('ROOT', dirname(__FILE__).DS); 
+use Controller;
 session_start();
-require_once'app/Autoloader.php';
-\app\Autoloader::register();
+
+require_once'Autoload/Autoloader.php';
+\Autoload\Autoloader::register();
 
 if(isset($_GET['p']))
 {
-    //$content= controller\UserList::WatchUserList(); //TEST BDD USER
-    $content= controller\UserList::test();
+    $content= controller\UserList::WatchUserList(); //TEST BDD USER
+    //$content= $content.Controller\UserList::test();
     var_dump($content);
     //require('indexView.php');
 }

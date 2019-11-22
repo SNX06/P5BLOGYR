@@ -1,5 +1,5 @@
 <?php
-namespace controller;
+namespace Controller;
 use model;
 
 Class Userlist
