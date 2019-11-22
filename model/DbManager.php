@@ -16,14 +16,14 @@ class DbManager
 
     public function UpdateDb($Query, $InitDbParam)
     {
-        $InitDb=$this->connexion($InitDbName, $InitDbHost, $InitDbUser, $InitDbPass);
+        $InitDb=DbManager::connexion();
         $Req=$InitDb->prepare($Query);
         $Req->execute(array($InitDbParam));
     }
 
     public function DeleteDb($InitDbName, $id, $DelId)
     {
-        $InitDb=$this->connexion();
+        $InitDb=DbManager::connexion();
         $Req=$InitDb->execute('DELETE FROM'.$InitDbName.'WHERE'.$id.'='.$DelId);
         return $Req;
     }
@@ -34,7 +34,7 @@ class DbManager
             $InitDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
-            die('<h3>Erreur!</h3>');
+            
         }
         return $InitDb;
     }

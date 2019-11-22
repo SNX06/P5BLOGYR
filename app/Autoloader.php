@@ -11,8 +11,8 @@ class Autoloader{
     public static function autoload($class){
       $nameSpace = explode('\\', $class);
       $nameSpace = array_map('strtolower', $nameSpace);
-      $i = count($nameSpace) - 1;
-      $nameSpace[$i] = ucfirst($nameSpace[$i]);      
+      $cpt = count($nameSpace) - 1;
+      $nameSpace[$cpt] = ucfirst($nameSpace[$cpt]);      
       $class = implode('/', $nameSpace);
       require $class.'.php';
     }
