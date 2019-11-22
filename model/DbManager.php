@@ -21,20 +21,20 @@ class DbManager
         $Req->execute(array($InitDbParam));
     }
 
-    public function DeleteDb($InitDbName, $id, $DelId)
+    public function DeleteDb($InitDbName, $idreq, $DelId)
     {
         $InitDb=DbManager::connexion();
-        $Req=$InitDb->execute('DELETE FROM'.$InitDbName.'WHERE'.$id.'='.$DelId);
+        $Req=$InitDb->execute('DELETE FROM'.$InitDbName.'WHERE'.$idreq.'='.$DelId);
         return $Req;
     }
 
-    private static function connexion() {
+    static function connexion() {
         try {
             $InitDb = new PDO('mysql:dbname=p5blog;host=localhost' , 'root', '');
             $InitDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
-            
+
         }
         return $InitDb;
     }
