@@ -10,8 +10,10 @@ require_once'app/Autoloader.php';
 
 if(isset($_GET['p']))
 {
-    $content= controller\UserList::WatchUserList();
-    require('indexView.php');
+    //$content= controller\UserList::WatchUserList(); //TEST BDD USER
+    $content= controller\UserList::test();
+    var_dump($content);
+    //require('indexView.php');
 }
 else
 {

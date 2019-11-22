@@ -1,10 +1,10 @@
 <?php
 
-namespace model;
+namespace Model;
 
 class User
 {
-    private $id;
+    private $IdUser;
     private $FirstName;
     private $LastName;
     private $Mail;
@@ -24,13 +24,14 @@ class User
         $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
-    public function UpdateUser($Id,$FirstName,$LastName,$Mail,$Phone){
+    public function UpdateUser($IdUser,$FirstName,$LastName,$Mail,$Phone){
+        $id=htmlspecialchars($IdUser);
         $Req='UPDATE user(first_name, last_name, mail, phone) SET (:first_name, :last_name,:mail,:phone) WHERE id='.$id;
         $ReqValues= array(
-            'first_name' => htmlspecialchars($FirstName),
-            'last_name' => htmlspecialchars($LastName),
-            'mail' => htmlspecialchars($Mail),
-            'phone' => htmlspecialchars($Phone),
+            ':first_name' => htmlspecialchars($FirstName),
+            ':last_name' => htmlspecialchars($LastName),
+            ':mail' => htmlspecialchars($Mail),
+            ':phone' => htmlspecialchars($Phone),
         );
         $DbReq= \model\DbManager::updateDb($Req,$ReqValues);
     }

@@ -6,7 +6,7 @@ class DbManager
 
     public function GetDb($Query)
     {
-        $InitDb= DbManager::connexion();
+        $InitDb= DbManager::Connexion();
         $Req = $InitDb->prepare($Query);
         $Req->execute();
         $GetDb = $Req->fetchAll(PDO::FETCH_ASSOC);
@@ -16,19 +16,19 @@ class DbManager
 
     public function UpdateDb($Query, $InitDbParam)
     {
-        $InitDb=DbManager::connexion();
+        $InitDb=DbManager::Connexion();
         $Req=$InitDb->prepare($Query);
         $Req->execute(array($InitDbParam));
     }
 
-    public function DeleteDb($InitDbName, $idreq, $DelId)
+    public function DeleteDb($InitDbName, $ArgToDel, $ValueArg)
     {
-        $InitDb=DbManager::connexion();
-        $Req=$InitDb->execute('DELETE FROM'.$InitDbName.'WHERE'.$idreq.'='.$DelId);
+        $InitDb=DbManager::Connexion();
+        $Req=$InitDb->execute('DELETE FROM'.$InitDbName.'WHERE'.$ArgToDel.'='.$ValueArg);
         return $Req;
     }
 
-    static function connexion() {
+    static function Connexion() {
         try {
             $InitDb = new PDO('mysql:dbname=p5blog;host=localhost' , 'root', '');
             $InitDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

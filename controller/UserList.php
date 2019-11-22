@@ -22,6 +22,10 @@ Class Userlist
         }
         echo '</div></div></div></div></header>';
     }
-
+    public function test(){
+        $idtest=1;
+        $id2='id';
+        $content1= model\Post::GetPost($id2,$idtest);
+        return $content1;
+    }
 }
-?>
