@@ -1,6 +1,6 @@
 <?php 
-
-
+namespace DbManager;
+use PDO;
 class DbManager
 {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace model\user;
+namespace User;
 require('./model/DbManager.php');
 use DbManager;
 
@@ -23,7 +23,7 @@ class User
     public function GetAllUser()
     {
         $Req='SELECT * FROM user';
-        $DbReq= DbManager::GetDb($Req);
+        $DbReq= \DbManager\DbManager::GetDb($Req);
         return $DbReq;
     }
     public function UpdateUser($Id,$FirstName,$LastName,$Mail,$Phone){

@@ -3,7 +3,7 @@
 if(isset($_GET['p']))
 {
     require('controller/UserList.php');
-    $content= controller\Userlist\UserList::WatchUserList();
+    $content= Userlist\UserList::WatchUserList();
     require('indexView.php');
 }
 else

@@ -1,5 +1,5 @@
 <?php
-namespace controller\UserList;
+namespace UserList;
 use model\User;
 
 Class Userlist
@@ -7,7 +7,7 @@ Class Userlist
     public function WatchUserList()
     {
         require('model/User.php');
-        $UserList=\model\User\User::GetAllUser();
+        $UserList=\User\User::GetAllUser();
         echo '    <header>
                     <div class="container">
                         <div class="row">
