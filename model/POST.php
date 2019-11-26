@@ -40,10 +40,9 @@ class Post
         $DbReq= \model\DbManager::updateDb($Req,$ReqValues);
     }
     
-    public function DeleteUserBy($ArgToDel, $ValueArg) 
+    public function DeletePostById($IdPost) 
     {
-        $DbName='user';
-        DbManager::DeleteDb($DbName, $Arg , $ValueArg);
+        DbManager::DeleteDb('post', 'id' , $IdPost);
     }
 }
 
