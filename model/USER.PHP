@@ -1,5 +1,4 @@
 <?php
-
 namespace Model;
 
 class User
@@ -42,6 +41,3 @@ class User
         DbManager::DeleteDb($DbName, $Arg , $ValueArg);
     }
 }
-
-
-?>

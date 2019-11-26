@@ -1,5 +1,4 @@
 <?php
-
 namespace Model;
 
 class Post
@@ -12,9 +11,9 @@ class Post
     public $Date;
 
 
-    public function GetPost($SelectorGet ,$ValueSelector)
+    public function GetPostById($IdPost)
     {
-        $Req='SELECT * FROM post WHERE '.$SelectorGet.'='.$ValueSelector;
+        $Req='SELECT * FROM post WHERE id ='.$IdPost;
         $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
@@ -25,9 +24,12 @@ class Post
         $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
-    public function UpdatePost($IdPost, $Title, $Chapo, $Content, $Author, $Date)
+    public function UpdatePost($Title, $Chapo, $Content, $Author)
     {
-        $Req='UPDATE post(id, title, chapo, content, author, date_post) SET (:id, :title, :chapo, :content, :author, :date_post) WHERE id='.$id;
+        $DateStamp = new DateTime();
+        $DateStamp = $datetime->format('d-m-Y H:i:s');
+        $Date = $date->getTimestamp();
+        $Req='UPDATE post(title, chapo, content, author, date_post) SET (:title, :chapo, :content, :author, :date_post) WHERE id='.$id;
         $ReqValues= array(
             ':title' => htmlspecialchars($Title),
             ':chapo' => htmlspecialchars($Chapo),

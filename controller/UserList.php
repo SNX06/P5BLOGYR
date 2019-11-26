@@ -10,10 +10,15 @@ Class Userlist
         var_dump($UserList);
         
     }
-    public function test(){
+    public function testPost(){
         $idtest=1;
         $id2='id';
-        $content1= model\Post::GetPost($id2,$idtest);
+        $content1= model\Post::GetPostById($idtest);
+        return $content1;
+    }
+    public function testComment(){
+        $idtest=1;
+        $content1=model\Comment::GetComment('id', $idtest);
         return $content1;
     }
 }

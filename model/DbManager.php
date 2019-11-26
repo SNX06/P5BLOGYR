@@ -1,6 +1,7 @@
 <?php 
 namespace Model;
 use PDO;
+
 class DbManager
 {
 
@@ -41,5 +42,3 @@ class DbManager
 
 }
 
-
-?>

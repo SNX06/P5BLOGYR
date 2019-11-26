@@ -65,7 +65,7 @@
     </nav>
 
 
-        
+
     <?php $content; ?>
 
 
