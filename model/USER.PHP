@@ -10,9 +10,9 @@ class User
     private $Phone;
 
 
-    public function GetUser($SelectorGet ,$ValueSelector)
+    public function GetUser($IdUser)
     {
-        $Req='SELECT * FROM user WHERE'.$SelectorGet.'='.$ValueSelector;
+        $Req='SELECT * FROM user WHERE id ='.$IdUser;
         $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
@@ -23,8 +23,11 @@ class User
         $DbReq= \model\DbManager::GetDb($Req);
         return $DbReq;
     }
-    public function UpdateUser($IdUser,$FirstName,$LastName,$Mail,$Phone){
+    public function UpdateUser($IdUser,$FirstLastName,$Mail,$Phone){
         $id=htmlspecialchars($IdUser);
+        $FLName= explode('', $FirstLastName);
+        $FirstName= $FLName[0];
+        $LastName= $FLName[1];
         $Req='UPDATE user(first_name, last_name, mail, phone) SET (:first_name, :last_name,:mail,:phone) WHERE id='.$id;
         $ReqValues= array(
             ':first_name' => htmlspecialchars($FirstName),
@@ -35,9 +38,8 @@ class User
         $DbReq= \model\DbManager::updateDb($Req,$ReqValues);
     }
     
-    public function DeleteUserBy($Arg, $ValueArg)
+    public function DeleteUserById($IdUser)
     {
-        $DbName='user';
-        DbManager::DeleteDb($DbName, $Arg , $ValueArg);
+        DbManager::DeleteDb('user', 'id' , $IdUser);
     }
 }
