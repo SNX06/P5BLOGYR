@@ -11,7 +11,7 @@ if(isset($_GET['p']))
     $content= controller\UserList::testPost(); //TEST BDD USER
     $content2=controller\UserList::testComment();
     $content3=controller\UserList::WatchUserList();
-    $content= $content.$content2.$content3;
+    //$content= $content.$content2.$content3;
     //require('indexView.php');
     var_dump($content);
 }
