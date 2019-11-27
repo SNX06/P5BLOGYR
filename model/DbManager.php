@@ -22,10 +22,10 @@ class DbManager
         $Req->execute(array($InitDbParam));
     }
 
-    public function DeleteDb($InitDbName, $ArgToDel, $ValueArg)
+    public function DeleteDb($DName, $ArgToDel, $ValueArg)
     {
         $InitDb=DbManager::Connexion();
-        $Req=$InitDb->execute('DELETE FROM'.$InitDbName.'WHERE'.$ArgToDel.'='.$ValueArg);
+        $Req=$InitDb->execute('DELETE FROM'.$DName.'WHERE'.$ArgToDel.'='.$ValueArg);
         return $Req;
     }
 

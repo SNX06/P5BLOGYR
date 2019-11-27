@@ -13,8 +13,8 @@ class User
     public function GetUser($IdUser)
     {
         $Req='SELECT * FROM user WHERE id ='.$IdUser;
-        $DbReq= \model\DbManager::GetDb($Req);
-        return $DbReq;
+        $Dr= \model\DbManager::GetDb($Req);
+        return $Dr;
     }
 
     public function GetAllUser()
@@ -28,7 +28,7 @@ class User
         $FLName= explode('', $FirstLastName);
         $FirstName= $FLName[0];
         $LastName= $FLName[1];
-        $Req='UPDATE user(first_name, last_name, mail, phone) SET (:first_name, :last_name,:mail,:phone) WHERE id='.$id;
+        $Req='UPDATE user(first_name, last_name, mail, phone) SET (:first_name, :last_name,:mail,:phone) WHERE id='.$IdUser;
         $ReqValues= array(
             ':first_name' => htmlspecialchars($FirstName),
             ':last_name' => htmlspecialchars($LastName),
