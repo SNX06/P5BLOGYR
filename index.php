@@ -12,8 +12,8 @@ if(isset($_GET['p']))
     $content2=controller\UserList::testComment();
     $content3=controller\UserList::WatchUserList();
     $content= $content.$content2.$content3;
-    require('indexView.php');
-    
+    //require('indexView.php');
+    var_dump($content);
 }
 else
 {
